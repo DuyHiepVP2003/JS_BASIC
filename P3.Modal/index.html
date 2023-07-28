@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Modal</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <button class="open">OPEN MODAL</button>
+    <div class="overlay hide">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Modal Title</h2>
+                <i class="modal-icon fa-solid fa-xmark"></i>
+            </div>
+            <div class="modal-content">
+                <h2>Modal</h2>
+                <p>Đây là phần body của modal</p>
+            </div>
+            <button class="modal-close">Close</button>
+        </div>
+    </div>
+</body>
+<script>
+    const openBtn = document.querySelector('.open')
+    const closeBtn = document.querySelector('.modal-close')
+    const closeIcon = document.querySelector('.modal-icon')
+    const modal = document.querySelector('.overlay')
+    function controll(){
+        modal.classList.toggle('hide')
+    }
+    openBtn.addEventListener('click', controll)
+    closeBtn.addEventListener('click', controll)
+    closeIcon.addEventListener('click', controll)
+    modal.addEventListener('click', function(e){
+        if(e.target == e.currentTarget){
+            controll()
+        }
+    })
+</script>
+</html>
